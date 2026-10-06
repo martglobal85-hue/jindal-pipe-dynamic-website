@@ -27,4 +27,13 @@ class WebsiteController extends Controller
             'contact' => Contact::first(),
         ]);
     }
+
+    public function contact()
+    {
+        return view('website.contact', [
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'contact' => Contact::first(),
+        ]);
+      
+    }
 }

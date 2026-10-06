@@ -80,14 +80,14 @@
 								<div class="footer-widget contact-widget">
 									<h4>Official info:</h4>
 									<ul class="contact-list">
-										<li><span class="icon fa fa-phone"></span> Plot No. 307, 308 TO 311, NR, RAMDEV CHOKDI, GIDC ANKLESHWAR 393002</li>
+										<li><span class="icon fa fa-phone"></span> {{ $contact->address ?? '' }}</li>
 										<li><span class="icon fa fa-envelope"></span> 
-											(+91) 97125 37663</li>
+											{{ $contact->mobile ?? '' }}</li>
 									</ul>
-									<div class="timing">
+									{{-- <div class="timing">
 										<strong>Open Hours: </strong>
 										Mon - Sat: 8 am - 5 pm, <br> Sunday: CLOSED
-									</div>
+									</div> --}}
 								</div>
 							</div>
 							
@@ -98,17 +98,10 @@
 									<div class="widget-content">
 										<div class="images-outer clearfix">
 											<!--Image Box-->
-											<figure class="image-box"><a class="lightbox-image" href="images/main-slider/1.jpg"><img src="images/main-slider/1.jpg" alt=""></a></figure>
-											<!--Image Box-->
-											<figure class="image-box"><a class="lightbox-image" href="images/main-slider/2.jpg"><img src="images/main-slider/2.jpg" alt=""></a></figure>
-											<!--Image Box-->
-											<figure class="image-box"><a class="lightbox-image" href="images/main-slider/3.jpg"><img src="images/main-slider/3.jpg" alt=""></a></figure>
-											<!--Image Box-->
-											<figure class="image-box"><a class="lightbox-image" href="images/main-slider/4.jpg"><img src="images/main-slider/4.jpg" alt=""></a></figure>
-											<!--Image Box-->
-											<figure class="image-box"><a class="lightbox-image" href="images/main-slider/5.jpg"><img src="images/main-slider/5.jpg" alt=""></a></figure>
-											<!--Image Box-->
-											<figure class="image-box"><a class="lightbox-image" href="images/main-slider/6.jpg"><img src="images/main-slider/6.jpg" alt=""></a></figure>
+											@foreach($categories->take(3) as $category)
+												<figure class="image-box"><a class="lightbox-image" href="{{ $category->image ? asset($category->image) : '' }}"><img src="{{ $category->image ? asset($category->image) : '' }}" alt=""></a></figure>
+											@endforeach
+											
 										</div>
 										<!-- Social Box -->
 											<ul class="social-box">

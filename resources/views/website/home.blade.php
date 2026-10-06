@@ -1139,9 +1139,9 @@
 	
 	<!-- News Section -->
 	<section class="news-section">
-		<div class="pattern-layer" style="background-image:url(images/background/pattern-5.png)"></div>
-		<div class="pattern-layer-two" style="background-image:url(images/background/pattern-6.png)"></div>
-		<div class="pattern-layer-three" style="background-image:url(images/background/pattern-7.png)"></div>
+		<div class="pattern-layer" style="background-image:url('{{ asset('web_assets/images/background/pattern-5.png') }}')"></div>
+		<div class="pattern-layer-two" style="background-image:url('{{ asset('web_assets/images/background/pattern-6.png') }}')"></div>
+		<div class="pattern-layer-three" style="background-image:url('{{ asset('web_assets/images/background/pattern-7.png') }}')"></div>
 		<div class="auto-container">
 			<div class="sec-title">
 				<div class="big-text">Blog</div>
@@ -1151,185 +1151,37 @@
 			<div class="three-item-carousel owl-carousel owl-theme">
 				
 				<!-- Blog Detail -->
-				<div class="news-block">
-					<div class="inner-box">
-						<div class="image">
-							<div class="category">Industrial</div>
-							<img src="images/resource/news-1.jpg" alt="">
-							<div class="overlay-box">
-								<div class="content">
-									<ul class="post-meta">
-										<li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
-										<li><span class="icon flaticon-calendar-2"></span>August 05, 2021 <span class="theme-color"></span></li>
-									</ul>
-									<h5>The Chancellor has delivered his Budget ...</h5>
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<div class="image-layer" style="background-image:url(images/resource/news-4.jpg)"></div>
-								<span class="post-date">18th <br> MAY’21</span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">The Chancellor has delivered his Budget ...</a></h5>
-										<div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div>
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Blog Detail -->
-				<div class="news-block">
-					<div class="inner-box">
-						<div class="image">
-							<div class="category">Industrial</div>
-							<img src="images/resource/news-2.jpg" alt="">
-							<div class="overlay-box">
-								<div class="content">
-									<ul class="post-meta">
-										<li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
-										<li><span class="icon flaticon-calendar-2"></span>August 05, 2021 <span class="theme-color"></span></li>
-									</ul>
-									<h5>Can You Sell A House Before the Probate?</h5>
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<div class="image-layer" style="background-image:url(images/resource/news-4.jpg)"></div>
-								<span class="post-date">18th <br> MAY’21</span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">Can You Sell A House Before the Probate?</a></h5>
-										<div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div>
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Blog Detail -->
-				<div class="news-block">
-					<div class="inner-box">
-						<div class="image">
-							<div class="category">Industrial</div>
-							<img src="images/resource/news-3.jpg" alt="">
-							<div class="overlay-box">
-								<div class="content">
-									<ul class="post-meta">
-										<li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
-										<li><span class="icon flaticon-calendar-2"></span>August 05, 2021 <span class="theme-color"></span></li>
-									</ul>
-									<h5>Key headlines for the best pharmaceutical industry.</h5>
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<div class="image-layer" style="background-image:url(images/resource/news-4.jpg)"></div>
-								<span class="post-date">18th <br> MAY’21</span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">Key headlines for the best pharmaceutical industry.</a></h5>
-										<div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div>
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Blog Detail -->
-				<div class="news-block">
-					<div class="inner-box">
-						<div class="image">
-							<div class="category">Industrial</div>
-							<img src="images/resource/news-1.jpg" alt="">
-							<div class="overlay-box">
-								<div class="content">
-									<ul class="post-meta">
-										<li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
-										<li><span class="icon flaticon-calendar-2"></span>August 05, 2021 <span class="theme-color"></span></li>
-									</ul>
-									<h5>The Chancellor has delivered his Budget ...</h5>
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<div class="image-layer" style="background-image:url(images/resource/news-4.jpg)"></div>
-								<span class="post-date">18th <br> MAY’21</span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">The Chancellor has delivered his Budget ...</a></h5>
-										<div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div>
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Blog Detail -->
-				<div class="news-block">
-					<div class="inner-box">
-						<div class="image">
-							<div class="category">Industrial</div>
-							<img src="images/resource/news-2.jpg" alt="">
-							<div class="overlay-box">
-								<div class="content">
-									<ul class="post-meta">
-										<li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
-										<li><span class="icon flaticon-calendar-2"></span>August 05, 2021 <span class="theme-color"></span></li>
-									</ul>
-									<h5>Can You Sell A House Before the Probate?</h5>
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<div class="image-layer" style="background-image:url(images/resource/news-4.jpg)"></div>
-								<span class="post-date">18th <br> MAY’21</span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">Can You Sell A House Before the Probate?</a></h5>
-										<div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div>
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<!-- Blog Detail -->
-				<div class="news-block">
-					<div class="inner-box">
-						<div class="image">
-							<div class="category">Industrial</div>
-							<img src="images/resource/news-3.jpg" alt="">
-							<div class="overlay-box">
-								<div class="content">
-									<ul class="post-meta">
-										<li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
-										<li><span class="icon flaticon-calendar-2"></span>August 05, 2021 <span class="theme-color"></span></li>
-									</ul>
-									<h5>Key headlines for the best pharmaceutical industry.</h5>
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<div class="image-layer" style="background-image:url(images/resource/news-4.jpg)"></div>
-								<span class="post-date">18th <br> MAY’21</span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">Key headlines for the best pharmaceutical industry.</a></h5>
-										<div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div>
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
+                @foreach($blogs as $blog)
+                    <div class="news-block">
+                        <div class="inner-box">
+                            <div class="image">
+                                <div class="category">Industrial</div>
+                                <img src="{{ $blog->image ? asset($blog->image) : '' }}" alt="{{ $blog->title  }}">
+                                <div class="overlay-box">
+                                    <div class="content">
+                                        <ul class="post-meta">
+                                            <li><span class="icon flaticon-user-2"></span>by <span class="theme-color"></span>Admin</li>
+                                            <li><span class="icon flaticon-calendar-2"></span>{{ $blog->created_at->format('F d, Y') }}<span class="theme-color"></span></li>
+                                        </ul>
+                                        <h5>{{ $blog->title ?? '' }}</h5>
+                                    </div>
+                                </div>
+                                <div class="overlay-box-two">
+                                    <div class="image-layer" style="background-image:url('{{ asset($blog->image) }}')"></div>
+                                    <span class="post-date">18th <br> MAY’21</span>
+                                    <div class="overlay-inner">
+                                        <div class="overlay-content">
+                                            <h5><a href="#">{{ $blog->title ?? '' }}</a></h5>
+                                            <div class="text">{!!  $blog->text !!}</div>
+                                            <a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+			
 			</div>
 		</div>
 	</section>

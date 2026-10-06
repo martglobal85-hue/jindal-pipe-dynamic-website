@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Banner;
+use App\Models\Blog;
+use App\Models\Client;
+use App\Models\Contact;
+use App\Models\HomeAbout;
+use App\Models\ProductCategory;
+use App\Models\Testimonial;
+
+/**
+ * Minimal public page showing how the frontend consumes the CMS content.
+ */
+class WebsiteController extends Controller
+{
+    public function home()
+    {
+        return view('website.home', [
+            'banners' => Banner::latest()->get(),
+            'about' => HomeAbout::latest()->first(),
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'testimonials' => Testimonial::active()->latest()->limit(6)->get(),
+            'clients' => Client::active()->latest()->get(),
+            'blogs' => Blog::active()->latest()->limit(3)->get(),
+            'contact' => Contact::first(),
+        ]);
+    }
+}

@@ -300,11 +300,42 @@
 								</div>
 							</div>
 						</div> -->
-						<div class="image">
-							<img src="images/main-slider/make-india/make-india.png" alt="">
-							<!-- <div class="circle-layer" style="background-image:url(images/main-slider/make-india/make-india.png)"></div>
-							<span class="gear-icon-one flaticon-gear"></span> -->
-						</div>
+                        @if(!empty($clients) && count($clients) > 0)
+                            <div class="row g-3 align-items-center">
+                                @foreach($clients as $client)
+                                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                                        <div class="client-logo-box"
+                                            style="
+                                                width:100%;
+                                                height:100px;
+                                                display:flex;
+                                                align-items:center;
+                                                justify-content:center;
+                                                padding:12px;
+                                                background:#fff;
+                                                border:1px solid #eee;
+                                                border-radius:8px;
+                                                overflow:hidden;
+                                            ">
+
+                                            @if(!empty($client->image))
+                                                <img src="{{ asset($client->image) }}"
+                                                    alt="{{ $client->title ?? 'Client' }}"
+                                                    style="
+                                                        max-width:100%;
+                                                        max-height:75px;
+                                                        width:auto;
+                                                        height:auto;
+                                                        object-fit:contain;
+                                                        display:block;
+                                                    ">
+                                            @endif
+
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
 					</div>
 				</div>
 				
@@ -398,32 +429,7 @@
 				<h2>Trusted Steel Solutions for Every Industry</h2>
 			</div>
 			<div class="three-item-carousel owl-carousel owl-theme">
-			
-				<!-- Service Block Two -->
-				<div class="service-block-two">
-					<div class="inner-box">
-						<div class="image">
-							<img src="images/main-slider/1.jpg" alt="">
-							<div class="overlay-box">
-								<span class="icon flaticon-drop-of-liquid"></span>
-								<div class="content">
-									<h5>Pipes & Tubes </h5>
-									<!-- <div class="title">Services</div> -->
-								</div>
-							</div>
-							<div class="overlay-box-two">
-								<span class="icon-two flaticon-drop-of-liquid"></span>
-								<div class="overlay-inner">
-									<div class="overlay-content">
-										<h5><a href="#">Pipes & Tubes</a></h5>
-										<!-- <div class="text">The Industrial Revolution, which took place from the 18th to 19th centuries, was a period during predomic.</div> -->
-										<a href="#" class="read-more">Read more <span class="flaticon-next-3"></span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
+		
 				
 				<!-- Service Block Two -->
                 @foreach($categories as $category)
@@ -452,10 +458,6 @@
 					</div>
 				</div>
                 @endforeach
-			
-			
-				
-				
 			</div>
 		</div>
 	</section>
@@ -534,7 +536,7 @@
 				<!-- Service Block Four -->
 				<div class="service-block-four col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="image-layer" style="background-image:url(images/resource/service-4.png)"></div>
+						<div class="image-layer" style="background-image:url('{{ asset('web_assets/images/resource/service-4.png') }}')"></div>
 						<div class="post-number">01</div>
 						<div class="icon-box">
 							<span class="icon flaticon-plumbing"></span>
@@ -549,7 +551,7 @@
 				<!-- Service Block Four -->
 				<div class="service-block-four col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="150ms" data-wow-duration="1500ms">
-						<div class="image-layer" style="background-image:url(images/resource/service-4.png)"></div>
+						<div class="image-layer" style="background-image:url('{{ asset('web_assets/images/resource/service-4.png') }}')"></div>
 						<div class="post-number">02</div>
 						<div class="icon-box">
 							<span class="icon flaticon-drop-of-liquid"></span>
@@ -564,7 +566,7 @@
 				<!-- Service Block Four -->
 				<div class="service-block-four col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-						<div class="image-layer" style="background-image:url(images/resource/service-4.png)"></div>
+						<div class="image-layer" style="background-image:url('{{ asset('web_assets/images/resource/service-4.png') }}')"></div>
 						<div class="post-number">03</div>
 						<div class="icon-box">
 							<span class="icon flaticon-test"></span>
@@ -580,7 +582,7 @@
 				<!-- Service Block Four -->
 				<div class="service-block-four col-lg-3 col-md-6 col-sm-12">
 					<div class="inner-box wow fadeInLeft" data-wow-delay="450ms" data-wow-duration="1500ms">
-						<div class="image-layer" style="background-image:url(images/resource/service-4.png)"></div>
+						<div class="image-layer" style="background-image:url('{{  asset('web_assets/images/resource/service-4.png') }}')"></div>
 						<div class="post-number">04</div>
 						<div class="icon-box">
 							<span class="icon flaticon-plant"></span>
@@ -1121,10 +1123,10 @@
 	<!-- End Team Section -->
 	
 	<!-- CTA Section -->
-	<section class="cta-section" style="background-image:url(images/main-slider/img/1.png)">
+	<section class="cta-section" style="background-image:url('{{ asset('web_assets/images/main-slider/img/1.png') }}')">
 		<div class="gradient-layer"></div>
-		<div class="pattern-layer" style="background-image:url(images/background/pattern-9.png)"></div>
-		<div class="pattern-layer-two" style="background-image:url(images/background/pattern-10.png)"></div>
+		<div class="pattern-layer" style="background-image:url('{{ asset('web_assets/images/background/pattern-9.png') }}')"></div>
+		<div class="pattern-layer-two" style="background-image:url('{{ asset('web_assets/images/background/pattern-10.png') }}')"></div>
 		<div class="auto-container">
 			<!-- <div class="icon">
 				<img src="images/icons/cta-logo.png" alt="">

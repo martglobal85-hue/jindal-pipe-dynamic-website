@@ -1,4 +1,4 @@
-<footer class="main-footer" style="background-image:url(images/background/pattern-12.png)">
+<footer class="main-footer" style="background-image:url('{{ asset('web_assets/images/background/pattern-12.png') }}')">
 		<div class="auto-container">
 			<!-- Widgets Section -->
 			<div class="widgets-section">
@@ -12,10 +12,10 @@
 							<div class="footer-column col-lg-6 col-md-6 col-sm-12">
 								<div class="footer-widget logo-widget">
 									<div class="logo">
-										<a href="index.php"><img src="images/jindal-steel.png" alt=""></a>
+										<a href="index.php"><img src="{{ $contact->image ?  asset($contact->image) : '' }}" alt=""></a>
 									</div>
-									<div class="text">Jindal Steel & Pipe Fitting is a SS and all type Pipe Manufacturers and Dealer products are known for their best quality in gujarat, india, ahmedabad. Tubes, Pipes, TC Fittings, Valves, Nut Bolts, Fasteners, Sheets, Plates, Coil, Rods & All Industrial Row Materials Etc.</div>
-									<a href="#" class="theme-btn about-btn">About us</a>
+									<div class="text">{{ $contact->footertext ?? '' }}</div>
+									{{-- <a href="#" class="theme-btn about-btn">About us</a> --}}
 								</div>
 							</div>
 							

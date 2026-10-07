@@ -99,107 +99,30 @@
 
 
 	<!-- About Section -->
-	<section class="">
+	<!-- Clients Section -->
+	<section class="clients-section">
 		<div class="auto-container">
-			<div class="row clearfix">
-			
-				<!-- <div class="content-column col-lg-7 col-md-12 col-sm-12">
-					<div class="inner-column">
-						<div class="sec-title">
-							<div class="big-text">Assessments</div>
-							<div class="title">About our Company</div>
-							<h2>Welcome to Jindal Steel & Pipe Fittings </h2>
-							<div class="text">Jindal Steel & Pipe Fittings is a leading manufacturer, stockist, and supplier of SS, MS, CS, and GI pipe fittings in Gujarat, India. We provide high-quality fittings for various industrial and commercial applications across the Indian market. Our company is located in well developed industrial vicinity in Ankleshwar, Gujarat offering large inventory of Steel & Pipe Fittings to the industry. Today the company has developed a niche space for itself with the availability and quality of products. From a single nut and bolt to pipes, tubes and valves the company has helped its customers realize their performance qualification.
-                        </div>
-						</div>
-						<div class="row clearfix">
-							<div class="feature-block col-lg-6 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<span class="icon flaticon-engineer"></span>
-									<h5>Strengthening society</h5>
-								</div>
-							</div>
-							<div class="feature-block col-lg-6 col-md-6 col-sm-12">
-								<div class="inner-box">
-									<span class="icon flaticon-customer-support"></span>
-									<h5>Driving the economy</h5>
-								</div>
-							</div>
-						</div>
-						<div class="lower-box clearfix">
-							<div class="button-box">
-								<a class="btn-style-one theme-btn" href="#"><span class="txt">About us <i class="arrow fa fa-angle-right"></i></span></a>
-							</div>
-							<div class="phone-box">
-								<div class="box-inner">
-									<span class="icon flaticon-telephone"></span>
-									Call us for help
-									<strong>(+91) 97125 37663 </strong>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-				
-				<div class="image-column col-lg-12 col-md-12 col-sm-12 sec-title-three">
-					<h2 class="text-center mb-4">Make In India Project</h2>
-					<div class="inner-column">
-						<!-- <div class="counter-box">
-							<div class="row clearfix">
-
-								<div class="counter-column col-lg-6 col-md-6 col-sm-12">
-									<h2><span class="odometer" data-count="3010"></span>+</h2>
-									<div class="counter-text">Satisfied Clients</div>
-								</div>
-
-								<div class="counter-column col-lg-6 col-md-6 col-sm-12">
-									<h2><span class="odometer" data-count="528"></span>+</h2>
-									<div class="counter-text">Active Projects</div>
-								</div>
-							</div>
-						</div> -->
-                        @if(!empty($clients) && count($clients) > 0)
-                            <div class="row g-3 align-items-center">
-                                @foreach($clients as $client)
-                                    <div class="col-6 col-sm-4 col-md-3 col-lg-2">
-                                        <div class="client-logo-box"
-                                            style="
-                                                width:100%;
-                                                height:100px;
-                                                display:flex;
-                                                align-items:center;
-                                                justify-content:center;
-                                                padding:12px;
-                                                background:#fff;
-                                                border:1px solid #eee;
-                                                border-radius:8px;
-                                                overflow:hidden;
-                                            ">
-
-                                            @if(!empty($client->image))
-                                                <img src="{{ asset($client->image) }}"
-                                                    alt="{{ $client->title ?? 'Client' }}"
-                                                    style="
-                                                        max-width:100%;
-                                                        max-height:75px;
-                                                        width:auto;
-                                                        height:auto;
-                                                        object-fit:contain;
-                                                        display:block;
-                                                    ">
-                                            @endif
-
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        @endif
-					</div>
-				</div>
-				
+			<!-- Sec Title Three -->
+			<div class="sec-title alternate centered">
+				<div class="title">Clients</div>
+				<h2>Our Trusted Clients</h2>
 			</div>
+			
+			<div class="carousel-outer">
+                <!-- Sponsors Slider -->
+                <ul class="sponsors-carousel owl-carousel owl-theme">
+                    @if(!empty($clients))
+                        @foreach($clients as $client)
+                            <li><div class="image-box"><img src="{{ $client->image ? asset($client->image) : '' }}" alt="{{ $client->title ?? '' }}"></div></li>
+                        @endforeach
+                    @endif
+                </ul>
+            </div>
+			
 		</div>
 	</section>
+	<!-- End Clients Section -->
+	
 	<!-- End About Section -->
 
 	

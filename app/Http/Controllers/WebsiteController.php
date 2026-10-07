@@ -10,6 +10,11 @@ use App\Models\HomeAbout;
 use App\Models\ProductCategory;
 use App\Models\Testimonial;
 use App\Models\PageAbout;
+use App\Models\WhyUs;
+use App\Models\Approach;
+
+
+
 
 
 /**
@@ -45,6 +50,10 @@ class WebsiteController extends Controller
             'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
             'contact' => Contact::first(),
             'pageabout' => PageAbout::latest()->first(),
+            'whyus'=> WhyUs::latest()->first(),
+            'approach'=>Approach::latest()->first(),
+            'testimonials' => Testimonial::active()->latest()->limit(6)->get(),
+            'clients' => Client::active()->latest()->get(),
         ]);
     }
 }

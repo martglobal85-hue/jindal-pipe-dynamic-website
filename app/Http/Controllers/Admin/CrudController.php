@@ -29,6 +29,8 @@ abstract class CrudController extends Controller
     protected string $label;
     protected string $uploadDir;
     protected array $imageFields = ['image'];
+    protected array $pdfFields = [];
+    protected string $pdfUploadDir = 'pdf';
     protected array $searchColumns = ['title'];
     protected array $with = [];
     protected array $withCount = [];
@@ -70,11 +72,22 @@ abstract class CrudController extends Controller
         return route($this->routeName . '.index');
     }
 
-    protected function collectImagePaths(Model $record): array
+    protected function old_collectImagePaths(Model $record): array
     {
         $paths = [];
 
         foreach ($this->imageFields as $field) {
+            $paths[] = $record->getAttribute($field);
+        }
+
+        return array_values(array_filter($paths));
+    }
+
+    protected function collectImagePaths(Model $record): array
+    {
+        $paths = [];
+
+        foreach (array_merge($this->imageFields, $this->pdfFields) as $field) {
             $paths[] = $record->getAttribute($field);
         }
 
@@ -133,7 +146,7 @@ abstract class CrudController extends Controller
 
     /* ------------------------------ actions ------------------------------ */
 
-    protected function storeRecord(FormRequest $request, array $extra = []): RedirectResponse
+    protected function old_storeRecord(FormRequest $request, array $extra = []): RedirectResponse
     {
         $uploaded = [];
 
@@ -162,7 +175,46 @@ abstract class CrudController extends Controller
         }
     }
 
-    protected function updateRecord(FormRequest $request, Model $record): RedirectResponse
+    protected function storeRecord(FormRequest $request, array $extra = []): RedirectResponse
+    {
+        $uploaded = [];
+
+        try {
+            $data = $this->prepareData(
+                $request->safe()->except(array_merge($this->imageFields, $this->pdfFields))
+            );
+
+            foreach ($this->imageFields as $field) {
+                if ($request->hasFile($field)) {
+                    $path = self::uploadImage($request->file($field), $this->uploadDir);
+                    $data[$field] = $path;
+                    $uploaded[] = $path;
+                }
+            }
+
+            foreach ($this->pdfFields as $field) {
+                if ($request->hasFile($field)) {
+                    $path = self::uploadPdf($request->file($field), $this->pdfUploadDir);
+                    $data[$field] = $path;
+                    $uploaded[] = $path;
+                }
+            }
+
+            $record = $this->modelClass::create(array_merge($data, $extra));
+
+            Log::info($this->label . ' created', $this->logContext($record));
+
+            return redirect($this->indexUrl())->with('success', 'Record created successfully.');
+        } catch (Throwable $e) {
+            foreach ($uploaded as $path) {
+                self::deleteImage($path);
+            }
+
+            return $this->failure('create', $e);
+        }
+    }
+
+    protected function old_updateRecord(FormRequest $request, Model $record): RedirectResponse
     {
         $uploaded = [];
         $replaced = [];
@@ -182,6 +234,52 @@ abstract class CrudController extends Controller
             $record->update($data);
 
             // New files are saved - the old ones can go.
+            foreach ($replaced as $oldPath) {
+                self::deleteImage($oldPath);
+            }
+
+            Log::info($this->label . ' updated', $this->logContext($record));
+
+            return redirect($this->indexUrl())->with('success', 'Record updated successfully.');
+        } catch (Throwable $e) {
+            foreach ($uploaded as $path) {
+                self::deleteImage($path);
+            }
+
+            return $this->failure('update', $e);
+        }
+    }
+
+    protected function updateRecord(FormRequest $request, Model $record): RedirectResponse
+    {
+        $uploaded = [];
+        $replaced = [];
+
+        try {
+            $data = $this->prepareData(
+                $request->safe()->except(array_merge($this->imageFields, $this->pdfFields))
+            );
+
+            foreach ($this->imageFields as $field) {
+                if ($request->hasFile($field)) {
+                    $replaced[] = $record->getAttribute($field);
+                    $path = self::uploadImage($request->file($field), $this->uploadDir);
+                    $data[$field] = $path;
+                    $uploaded[] = $path;
+                }
+            }
+
+            foreach ($this->pdfFields as $field) {
+                if ($request->hasFile($field)) {
+                    $replaced[] = $record->getAttribute($field);
+                    $path = self::uploadPdf($request->file($field), $this->pdfUploadDir);
+                    $data[$field] = $path;
+                    $uploaded[] = $path;
+                }
+            }
+
+            $record->update($data);
+
             foreach ($replaced as $oldPath) {
                 self::deleteImage($oldPath);
             }

@@ -51,7 +51,18 @@
         <div class="mt-2 d-none" data-image-preview>
             <img src="" alt="New image preview" class="img-thumbnail" style="max-height: 110px;">
         </div>
-
+    
+    @elseif($type === 'pdf')
+    <input type="file" name="{{ $name }}" id="{{ $id }}" accept="application/pdf"
+           class="form-control{{ $invalid }}">
+    @if($value)
+        <div class="mt-2 small">
+            <i class="bi bi-file-earmark-pdf text-danger"></i>
+            <a href="{{ asset($value) }}" target="_blank" rel="noopener">View current PDF</a>
+            <span class="text-muted">· choose a new file only to replace it.</span>
+        </div>
+    @endif
+    
     @else
         <input type="{{ $type }}" name="{{ $name }}" id="{{ $id }}" value="{{ $current }}"
                class="form-control{{ $invalid }}" @if($reqAttr) required @endif>

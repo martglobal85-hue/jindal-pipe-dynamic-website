@@ -7,6 +7,7 @@ Route::get('/', [WebsiteController::class, 'home'])->name('website.home');
 Route::get('contact', [WebsiteController::class, 'contact'])->name('website.contact');
 Route::get('about', [WebsiteController::class, 'about'])->name('website.about');
 Route::get('product-quality', [WebsiteController::class, 'websitequality'])->name('website.product-quality');
+Route::get('weight-formula', [WebsiteController::class, 'weightformula'])->name('website.weight-formula');
 
 Route::get('application', [WebsiteController::class, 'application'])->name('website.application');
 

@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends CrudController
 {
+    protected array $pdfFields = ['pdf'];
+    protected string $pdfUploadDir = 'product-pdf';
+
     protected string $modelClass = Product::class;
     protected string $routeName = 'admin.products';
     protected string $viewPath = 'admin.products';
@@ -20,6 +23,8 @@ class ProductController extends CrudController
     protected string $uploadDir = 'product';
     protected array $imageFields = ['image'];
     protected array $searchColumns = ['title', 'subtitle'];
+
+    
 
     public function index(Request $request)
     {

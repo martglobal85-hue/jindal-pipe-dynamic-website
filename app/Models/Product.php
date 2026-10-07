@@ -16,6 +16,7 @@ class Product extends Model
         'subtitle',
         'text',
         'image',
+        'pdf',
         'category_id',
         'status',
     ];

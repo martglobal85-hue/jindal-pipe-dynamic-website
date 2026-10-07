@@ -80,4 +80,21 @@ trait HandlesFileUpload
             @unlink($fullPath);
         }
     }
+
+    public static function uploadPdf(UploadedFile $file, string $directory): string
+    {
+        $directory = trim($directory, '/');
+
+        if (strtolower($file->getClientOriginalExtension()) !== 'pdf') {
+            throw new \InvalidArgumentException('Unsupported file extension.');
+        }
+
+        $target = static::upload($file, public_path('uploads/' . $directory));
+
+        if ($target === false) {
+            throw new \RuntimeException('PDF upload failed.');
+        }
+
+        return 'uploads/' . $directory . '/' . basename($target);
+    }
 }

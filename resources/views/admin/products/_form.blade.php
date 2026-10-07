@@ -7,6 +7,8 @@
 <x-admin.field name="text" label="Text" type="richtext" :value="$record?->text"  />
 
 <x-admin.field name="image" label="Image" type="image" :value="$record?->image" hint="JPG, PNG, WEBP or GIF, max 2 MB." />
+<x-admin.field name="pdf" label="Product PDF" type="pdf" :value="$record?->pdf"
+    hint="PDF only, max 2 MB. Leave empty to keep the current file." />
 <x-admin.field name="status" label="Status" type="select" :options="['1' => 'Active', '0' => 'Inactive']" :placeholder="false" :value="(int) ($record?->status ?? true)" required />
 
 

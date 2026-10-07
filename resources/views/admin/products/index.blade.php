@@ -39,6 +39,7 @@
                         <th scope="col">Image</th>
                         <th scope="col">Title</th>
                         <th scope="col">Category</th>
+                        <th scope="col">PDF</th>
                         <th scope="col">Status</th>
                         <th scope="col" class="text-end">Actions</th>
                     </tr>
@@ -50,6 +51,7 @@
                             <td><div class="fw-semibold">{{ $record->title }}</div>@if($record->subtitle)<div class="small text-muted">{{ \Illuminate\Support\Str::limit($record->subtitle, 50) }}</div>@endif</td>
                             <td>{{ $record->category?->title ?? '—' }}</td>
                             <td><x-admin.status-badge :status="$record->status" /></td>
+                            <td>@if($record->pdf)<a href="{{ asset($record->pdf) }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary" title="View PDF"><i class="bi bi-file-earmark-pdf"></i></a>@else<span class="text-muted">—</span>@endif</td>
                             <td class="text-end text-nowrap">
                                 <a href="{{ route('admin.products.contents.index', $record) }}" class="btn btn-sm btn-outline-secondary" title="Content"><i class="bi bi-card-text"></i><span class="d-none d-xxl-inline ms-1">Content</span> <span class="badge text-bg-light border">{{ $record->contents_count }}</span></a>
                                 <a href="{{ route('admin.products.table-content.index', $record) }}" class="btn btn-sm btn-outline-secondary" title="Table Content"><i class="bi bi-table"></i><span class="d-none d-xxl-inline ms-1">Table</span> <span class="badge text-bg-light border">{{ $record->table_contents_count }}</span></a>
@@ -60,7 +62,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="5">
+                            <td colspan="7">
                                 <x-admin.empty-state icon="bi-inbox" title="No products found"
                                     :message="$search !== '' ? 'No results match your search.' : 'Get started by adding your first record.'">
                                     @if($search === '')

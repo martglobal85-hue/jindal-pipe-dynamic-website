@@ -140,7 +140,12 @@
 											<li><a href="not-found.html">Not Found</a></li>
 										</ul> -->
 									</li>
-									<li><a href="#">Technical</a></li>
+									<li class="dropdown"><a href="#">Technical</a>
+										<ul>
+											<li><a href="blog.html">Our Blog</a></li>
+											<li><a href="{{ route('website.weight-formula') }}">Weight calculation Formula</a></li>
+										</ul> 
+									</li>
 									<li><a href="{{ route('website.contact') }}">Contact</a></li>
 								</ul>
 							</div>

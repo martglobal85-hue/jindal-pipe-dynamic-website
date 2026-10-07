@@ -75,7 +75,6 @@ class WebsiteController extends Controller
 
     public function websitequality()
     {
-        
         return view('website.quality',[
             'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
             'contact' => Contact::first(),
@@ -85,11 +84,19 @@ class WebsiteController extends Controller
 
     public function application()
     {
-    
         return view('website.application',[
             'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
             'contact' => Contact::first(),
             'application'=> Application::first(),
+        ]);
+    }
+
+    public function weightformula()
+    {
+        return view('website.weightcalformula',[
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'contact' => Contact::first(),
+            'weightcalformula'=> Application::skip(1)->first(),
         ]);
     }
 }

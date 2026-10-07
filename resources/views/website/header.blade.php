@@ -90,7 +90,7 @@
 							
 							<div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
 								<ul class="navigation clearfix">
-									<li class=""><a href="index.php">Home</a>
+									<li class=""><a href="{{ route('website.home') }}">Home</a>
 										<!-- <ul>
 											<li><a href="index.html">Homepage One</a></li>
 											<li><a href="index-2.html">Homepage Two</a></li>
@@ -191,7 +191,7 @@
 										</ul> -->
 									</li>
 									<li><a href="#">Technical</a></li>
-									<li><a href="contact.php">Contact</a></li>
+									<li><a href="{{ route('website.contact') }}">Contact</a></li>
 								</ul>
 							</div>
 						</nav>

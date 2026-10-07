@@ -9,6 +9,8 @@ use App\Models\Contact;
 use App\Models\HomeAbout;
 use App\Models\ProductCategory;
 use App\Models\Testimonial;
+use App\Models\PageAbout;
+
 
 /**
  * Minimal public page showing how the frontend consumes the CMS content.
@@ -35,5 +37,14 @@ class WebsiteController extends Controller
             'contact' => Contact::first(),
         ]);
       
+    }
+
+    public function about()
+    {
+         return view('website.about', [
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'contact' => Contact::first(),
+            'pageabout' => PageAbout::latest()->first(),
+        ]);
     }
 }

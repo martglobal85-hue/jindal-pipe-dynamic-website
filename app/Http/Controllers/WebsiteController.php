@@ -13,6 +13,12 @@ use App\Models\PageAbout;
 use App\Models\WhyUs;
 use App\Models\Approach;
 use App\Models\Product;
+use App\Models\Quality;
+use App\Models\Application;
+
+use App\Models\ProductQuality;
+
+
 
 
 
@@ -65,5 +71,25 @@ class WebsiteController extends Controller
             'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
         ]);
         
+    }
+
+    public function websitequality()
+    {
+        
+        return view('website.quality',[
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'contact' => Contact::first(),
+            'productquality'=> ProductQuality::first(),
+        ]);
+    }
+
+    public function application()
+    {
+    
+        return view('website.application',[
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'contact' => Contact::first(),
+            'application'=> Application::first(),
+        ]);
     }
 }

@@ -127,13 +127,13 @@
 											@endforeach
 										</ul>
 									</li>
-									<li class=""><a href="qulality.php">Quality</a>
+									<li class=""><a href="{{ route('website.product-quality') }}">Quality</a>
 										<!-- <ul>
 											<li><a href="project.html">Projects</a></li>
 											<li><a href="project-detail.html">Projects Detail</a></li>
 										</ul> -->
 									</li>
-									<li class=""><a href="application.php">Application</a>
+									<li class=""><a href="{{ route('website.application') }}">Application</a>
 										<!-- <ul>
 											<li><a href="blog.html">Our Blog</a></li>
 											<li><a href="blog-detail.html">Blog Detail</a></li>

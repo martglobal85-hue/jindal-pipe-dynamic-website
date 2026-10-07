@@ -16,6 +16,10 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ProductTableContentController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhyUsController;
+use App\Http\Controllers\Admin\ApplicationController;
+use App\Http\Controllers\Admin\QualityController;
+use App\Http\Controllers\Admin\ProductQualityController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -82,5 +86,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->parameters(['clients' => 'client']);
         Route::resource('blogs', BlogController::class)->except('show')
             ->parameters(['blogs' => 'blog']);
+
+        //application and quality
+        Route::resource('product-qualities', ProductQualityController::class)->except('show')
+        ->parameters(['product-qualities' => 'product_quality']);
+        Route::resource('applications', ApplicationController::class)->except('show')
+            ->parameters(['applications' => 'application']);
+
     });
 });

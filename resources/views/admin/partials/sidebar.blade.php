@@ -9,6 +9,8 @@
             ['Page About', 'bi-info-circle', 'admin.page-about.index', 'admin.page-about.*'],
             ['Why Us', 'bi-patch-check', 'admin.why-us.index', 'admin.why-us.*'],
             ['Approach', 'bi-bullseye', 'admin.approach.index', 'admin.approach.*'],
+            ['Product Quality', 'bi-award', 'admin.product-qualities.index', 'admin.product-qualities.*'],
+            ['Application', 'bi-grid', 'admin.applications.index', 'admin.applications.*'],
             ['Contact', 'bi-telephone', 'admin.contact.edit', 'admin.contact.*'],
         ]],
         ['heading' => 'Products', 'items' => [

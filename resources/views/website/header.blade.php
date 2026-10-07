@@ -104,7 +104,7 @@
 											</li>
 										</ul> -->
 									</li>
-									<li class=""><a href="about.php">About</a>
+									<li class=""><a href="{{ route('website.about') }}">About</a>
 										<!-- <ul>
 											<li><a href="about.html">About us</a></li>
 											<li><a href="faq.html">Faq's</a></li>
@@ -114,67 +114,17 @@
 									</li>
 									<li class="dropdown"><a href="#">Products</a>
 										<ul>
-											<li class="dropdown"><a href="#">Pipes & Tubes</a>
-												<ul>
-													<li><a href="ss-semless-erw-pipes.php">Ss Semless & Erw Pipes</a></li>
-													<li><a href="ms-gi-pipes.php">Ms & Gi Pipes</a></li>
-													<li><a href="cs-semless-pipes-tubes.php">Cs Semless Pipes & Tubes</a></li>
-													<li><a href="alloys-pipes.php">Alloys Pipes</a></li>
-													<li><a href="dublex-semless-era-pipes.php">Duplex Semless Erw Pipes</a></li>
-													<li><a href="copper-brass-pipes.php">Copper & Brass Pipes</a></li>
-													<li><a href="aluminium-pipes-tubes.php">Aluminium Pipes & Tubes</a></li>
-													<li><a href="di-ci-pipes.php">Di & Ci Pipes</a></li>
-													<li><a href="ibr-pipes.php">Ibr Pipes</a></li>
-													<!-- <li><a href="#">Pipe Dealers Stockist</a></li>
-                                                    <li><a href="#">Pipe Fittings Mumbai</a></li> -->
-												</ul>
+											@foreach($categories as $category)
+											<li class="{{ $category->products->count() ? 'dropdown' : '' }}"><a href="#">{{ $category->title }}</a>
+												@if($category->products->count())
+													<ul>
+														@foreach($category->products as $product)
+															<li><a href="{{ route('website.product',$product) }}">{{ $product->title ?? '' }}</a></li>
+														@endforeach
+													</ul>
+												@endif
 											</li>
-											<li class="dropdown"><a href="#">Industrial Fittings</a>
-												<ul>
-													<li><a href="buttweld-fittings.php">Buttweld Fittngs</a></li>
-													<li><a href="forged-fitting.php">Forged Fittings</a></li>
-													<li><a href="socket-weld-fitting.php">Socket Weld Fittings</a></li>
-													<li><a href="tc-fitting.php">Tc Fittings</a></li>
-													<li><a href="dairy-fitting.php">Dairy Fittings</a></li>
-													<li><a href="ferrule-fittings.php">Ferrule Fittings</a></li>
-													<li><a href="hydraulic-fittings.php">Hydrolic Fittings</a></li>
-													<li><a href="threaded-fittings.php">Threaded Fittings</a></li>
-													<li><a href="plumber-fitting.php">Plumber Fittings</a></li>
-													<li><a href="paddle-flanged-fitting.php">Paddel And Flinged Fittings</a></li>
-                                                    <li><a href="ibr-fitting.php">Ibr Fittings</a></li>
-                                                    <li><a href="fire-fittings.php">Fire Fittings</a></li>
-												</ul>
-											</li>
-											<li class="dropdown"><a href="#">Industrial Flanges</a>
-												<ul>
-													<li><a href="weld-neck-flange.php">Weld Neck Flanges</a></li>
-													<li><a href="groove-tongue-flanges.php">Groove & Tongue Flanges</a></li>
-													<li><a href="slip-on-flange.php">Slip On Flanges</a></li>
-													<li><a href="blind-flange.php">Blind Flanges</a></li>
-													<li><a href="lab-joint-flange.php">Lap Joint Flanges</a></li>
-													<li><a href="screwed-flange.php">Screwed Flanges</a></li>
-													<li><a href="reducing-flange.php">Reducing Flanges</a></li>
-													<li><a href="spectacle-blind-flange.php">Spectacle Blind Flanges</a></li>
-													<li><a href="socket-flange.php">Sokcet Flanges</a></li>
-													<li><a href="ibr-nor-ibr-flange.php">Ibr And Non Ibr Flanges</a></li>
-												</ul>
-											</li>
-											<li class="dropdown"><a href="#">Industrial Valves</a>
-												<ul>
-													<li><a href="flange-type-valve.php">Flanged Type Valve</a></li>
-													<li><a href="threaded-type-valve.php">Threaded Type Valve</a></li>
-													<li><a href="#">Socket Wel Type Valve</a></li>
-												</ul>
-											</li>
-											<li><a href="#">Fabricated And Flanged Fittings</a></li>
-											<li><a href="#">PTFE/PP Coated Pipes And Fittings</a></li>
-											<li><a href="#">Sheet/Plate/Coil</a></li>
-											<li><a href="#">Angle/Channel/Beam</a></li>
-											<li><a href="#">Round Bar/Flat/Wire</a></li>
-											<li><a href="#">GI Grating And Wire Mesh</a></li>
-											<li><a href="#">Scaffolding Pipe And Clamp</a></li>
-											<li><a href="#">Fastener And Nut, Bolt & Washer</a></li>
-											<li><a href="#">GI Chain Link And Barbed Wire</a></li>
+											@endforeach
 										</ul>
 									</li>
 									<li class=""><a href="qulality.php">Quality</a>

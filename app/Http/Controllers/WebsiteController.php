@@ -12,7 +12,7 @@ use App\Models\Testimonial;
 use App\Models\PageAbout;
 use App\Models\WhyUs;
 use App\Models\Approach;
-
+use App\Models\Product;
 
 
 
@@ -55,5 +55,15 @@ class WebsiteController extends Controller
             'testimonials' => Testimonial::active()->latest()->limit(6)->get(),
             'clients' => Client::active()->latest()->get(),
         ]);
+    }
+
+    public function product(Product $product)
+    {
+        return view('website.product',[
+            'product' => $product->load(['category','contents','tableContents','galleries']),
+            'contact' => Contact::first(),
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+        ]);
+        
     }
 }

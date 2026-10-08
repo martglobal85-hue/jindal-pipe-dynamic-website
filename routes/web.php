@@ -8,12 +8,10 @@ Route::get('contact', [WebsiteController::class, 'contact'])->name('website.cont
 Route::get('about', [WebsiteController::class, 'about'])->name('website.about');
 Route::get('product-quality', [WebsiteController::class, 'websitequality'])->name('website.product-quality');
 Route::get('weight-formula', [WebsiteController::class, 'weightformula'])->name('website.weight-formula');
-
 Route::get('download', [WebsiteController::class, 'download'])->name('website.download');
-
-
 Route::get('application', [WebsiteController::class, 'application'])->name('website.application');
-
 Route::get('product/{product:slug}',[WebsiteController::class, 'product'])->name('website.product');
+
+
 // Admin panel (/admin/*)
 require __DIR__ . '/admin.php';

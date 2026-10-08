@@ -12,6 +12,7 @@
             ['Product Quality', 'bi-award', 'admin.product-qualities.index', 'admin.product-qualities.*'],
             ['Application', 'bi-grid', 'admin.applications.index', 'admin.applications.*'],
             ['Contact', 'bi-telephone', 'admin.contact.edit', 'admin.contact.*'],
+            ['Team', 'bi-person-badge', 'admin.team.index', 'admin.team.*'],
         ]],
         ['heading' => 'Products', 'items' => [
             ['Product Categories', 'bi-tags', 'admin.product-categories.index', 'admin.product-categories.*'],

@@ -20,7 +20,8 @@ use App\Http\Controllers\Admin\ApplicationController;
 use App\Http\Controllers\Admin\QualityController;
 use App\Http\Controllers\Admin\ProductQualityController;
 use App\Http\Controllers\Admin\PasswordController;
-;
+use App\Http\Controllers\Admin\TeamController;
+
 
 use Illuminate\Support\Facades\Route;
 
@@ -96,9 +97,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
             ->parameters(['applications' => 'application']);
 
         // password
-
         Route::get('change-password', [PasswordController::class, 'edit'])->name('password.edit');
         Route::put('change-password', [PasswordController::class, 'update'])->name('password.update');
+
+        //team
+         Route::resource('team', TeamController::class)->except('show')
+        ->parameters(['team' => 'team']);
 
     });
 });

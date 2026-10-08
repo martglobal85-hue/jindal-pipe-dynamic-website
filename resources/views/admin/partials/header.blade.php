@@ -8,9 +8,9 @@
     </div>
 
     <div class="d-flex align-items-center gap-2">
-        <a href="{{ route('website.home') }}" target="_blank" rel="noopener" class="btn btn-light border btn-sm d-none d-md-inline-flex align-items-center gap-1">
+        {{-- <a href="{{ route('website.home') }}" target="_blank" rel="noopener" class="btn btn-light border btn-sm d-none d-md-inline-flex align-items-center gap-1">
             <i class="bi bi-box-arrow-up-right"></i> View site
-        </a>
+        </a> --}}
 
         <div class="dropdown">
             <button class="btn btn-light border d-flex align-items-center gap-2 user-menu" type="button"

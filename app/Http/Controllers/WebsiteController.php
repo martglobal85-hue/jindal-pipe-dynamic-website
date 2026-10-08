@@ -99,4 +99,12 @@ class WebsiteController extends Controller
             'weightcalformula'=> Application::skip(1)->first(),
         ]);
     }
+
+    public function download()
+    {
+        return view('website.download',[
+            'categories' => ProductCategory::active()->with(['products' => fn ($q) => $q->active()])->get(),
+            'contact' => Contact::first(),
+        ]); 
+    }
 }

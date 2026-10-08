@@ -50,8 +50,9 @@
                             <td>@if($record->image)<img src="{{ asset($record->image) }}" alt="{{ $record->title ?? 'Image' }}" class="thumb" loading="lazy">@else<span class="thumb thumb-empty"><i class="bi bi-image"></i></span>@endif</td>
                             <td><div class="fw-semibold">{{ $record->title }}</div>@if($record->subtitle)<div class="small text-muted">{{ \Illuminate\Support\Str::limit($record->subtitle, 50) }}</div>@endif</td>
                             <td>{{ $record->category?->title ?? '—' }}</td>
-                            <td><x-admin.status-badge :status="$record->status" /></td>
                             <td>@if($record->pdf)<a href="{{ asset($record->pdf) }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-secondary" title="View PDF"><i class="bi bi-file-earmark-pdf"></i></a>@else<span class="text-muted">—</span>@endif</td>
+                            <td><x-admin.status-badge :status="$record->status" /></td>
+                            
                             <td class="text-end text-nowrap">
                                 <a href="{{ route('admin.products.contents.index', $record) }}" class="btn btn-sm btn-outline-secondary" title="Content"><i class="bi bi-card-text"></i><span class="d-none d-xxl-inline ms-1">Content</span> <span class="badge text-bg-light border">{{ $record->contents_count }}</span></a>
                                 <a href="{{ route('admin.products.table-content.index', $record) }}" class="btn btn-sm btn-outline-secondary" title="Table Content"><i class="bi bi-table"></i><span class="d-none d-xxl-inline ms-1">Table</span> <span class="badge text-bg-light border">{{ $record->table_contents_count }}</span></a>

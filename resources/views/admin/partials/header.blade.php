@@ -23,6 +23,11 @@
                 <li class="px-3 py-2 small text-muted">{{ auth('admin')->user()->email ?? '' }}</li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
+                    <a class="dropdown-item" href="{{ route('admin.password.edit') }}">
+                        <i class="bi bi-key me-2"></i>Change Password
+                    </a>
+                </li>
+                <li>
                     <form method="POST" action="{{ route('admin.logout') }}">
                         @csrf
                         <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
